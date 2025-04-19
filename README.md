@@ -21,7 +21,7 @@ Failed traces: 1
 ```
 
 ## mlog_stats.sh
-This parses the tail (default 5000 rows) of the /var/log/meshtasticd.json log and returns which nodes have produced the most activity (from field). I wrote this to determine who was causing my high channel utilization.
+This parses the tail (default 5000 rows) of the /var/log/meshtasticd.json log and returns which nodes have produced the most activity (from field). I wrote this to determine which nodes causing high channel utilization.
 
 Example output:
 ```
