@@ -3,10 +3,10 @@
 # Interval between traces. Default is 900 seconds (15 minutes).
 interval="900"
 
-[ ! -d ./log ] && mkdir ./log
-if [ -f ./log/mtrl.log ]; then
+[ ! -d ./mtrl_log ] && mkdir ./mtrl_log
+if [ -f ./mtrl_log/mtrl.log ]; then
     read -e -p "Clear current logs? (y/n) " choice
-    [[ "$choice" == [Yy]* ]] && rm ./log/*.log
+    [[ "$choice" == [Yy]* ]] && rm ./mtrl_log/*.log
 fi
 
 mnode=$(meshtastic --nodes | grep "$1")
@@ -20,11 +20,11 @@ if [ -n "$mnode" ]; then
                 mtt=$(expr $mte - $mtb)
                 mout2=$(echo $mout | grep "Aborting")
                 if [ -n "$mout2" ]; then
-                echo "${mtb}|${1}|fail|${mtt}" >> ./log/mtrl.log
+                echo "${mtb}|${1}|fail|${mtt}" >> ./mtrl_log/mtrl.log
                 else
-                        echo "${mtb}|${1}|success|${mtt}" >> ./log/mtrl.log
+                        echo "${mtb}|${1}|success|${mtt}" >> ./mtrl_log/mtrl.log
                 fi
-                echo "${mtb}|${mout}" >> ./log/mtrd.log
+                echo "${mtb}|${mout}" >> ./mtrl_log/mtrd.log
                 sleep "$interval";
         done
 else
