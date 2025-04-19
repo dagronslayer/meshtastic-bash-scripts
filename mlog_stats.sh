@@ -20,7 +20,7 @@ while IFS=':' read -ra iarray; do
 done < <(tail -n "$logtail" /var/log/meshtasticd.json)
 
 # Print node ID
-# for k in "${!oarray[@]}"; do echo "$k" ' - ' ${oarray["$k"]}; done | sort -nr -k3
+for k in "${!oarray[@]}"; do echo "$k" ' - ' ${oarray["$k"]}; done | sort -nr -k3
 
 # Print node short name
-for k in "${!oarray[@]}"; do echo $(meshtastic --nodes | grep "$k" | head -1 | tr '│' '^' | cut -d'^' -f13 | xargs) ' - ' ${oarray["$k"]}; done | sort -nr -k3
+#for k in "${!oarray[@]}"; do echo $(meshtastic --nodes | grep "$k" | head -1 | tr '│' '^' | cut -d'^' -f13 | xargs) ' - ' ${oarray["$k"]}; done | sort -nr -k3
