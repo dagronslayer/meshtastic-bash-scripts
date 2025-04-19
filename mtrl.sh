@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Interval between traces. Default is 900 seconds (15 minutes).
+# Interval between traces. Default is 900 seconds (15 minutes). Default iterations is 48 (12 hours).
 interval="900"
+iterations="48"
 
 [ ! -d ./mtrl_log ] && mkdir ./mtrl_log
 if [ -f ./mtrl_log/mtrl.log ]; then
@@ -13,19 +14,19 @@ mnode=$(meshtastic --nodes | grep "$1")
 if [ -n "$mnode" ]; then
         echo "$mnode"
         madd=$(echo "$mnode" | head -1 | tr '│' '^' | cut -d'^' -f10 | xargs)
-        while true; do
-                mtb=$(date +%s)
-                mout=$(/usr/local/bin/meshtastic --traceroute "$madd")
-                mte=$(date +%s)
-                mtt=$(expr $mte - $mtb)
-                mout2=$(echo $mout | grep "Aborting")
-                if [ -n "$mout2" ]; then
+        for(( i=$iterations; i>0; i-=1 )); do
+            mtb=$(date +%s)
+            mout=$(/usr/local/bin/meshtastic --traceroute "$madd")
+            mte=$(date +%s)
+            mtt=$(expr $mte - $mtb)
+            mout2=$(echo $mout | grep "Aborting")
+            if [ -n "$mout2" ]; then
                 echo "${mtb}|${1}|fail|${mtt}" >> ./mtrl_log/mtrl.log
-                else
-                        echo "${mtb}|${1}|success|${mtt}" >> ./mtrl_log/mtrl.log
-                fi
-                echo "${mtb}|${mout}" >> ./mtrl_log/mtrd.log
-                sleep "$interval";
+            else
+                echo "${mtb}|${1}|success|${mtt}" >> ./mtrl_log/mtrl.log
+            fi
+            echo "${mtb}|${mout}" >> ./mtrl_log/mtrd.log
+            sleep "$interval";
         done
 else
         echo "$1 not found"
