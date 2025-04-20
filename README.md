@@ -11,13 +11,14 @@ Quick stats on mtrl results. This also returns the mean SNR. Useful for evaluati
 
 Example output:
 ```
--6.25dB
--7.25dB
+-5.5dB
+-6.5dB
+-6.0dB
 ...
-Successful traces: 7
-Failed traces: 1
-87% Success
--6.64dB mean SNR from 7 recorded values
+Successful traces: 45
+Failed traces: 10
+81% Success
+-8.61dB mean SNR from 45 recorded values
 ```
 
 ## mlog_stats.sh
@@ -25,13 +26,12 @@ This parses the tail (default 5000 rows) of the /var/log/meshtasticd.json log an
 
 Example output:
 ```
-74e59f1e  -  1191
-8487cea8  -  513
-eba81f55  -  359
-6782905a  -  350
-eb5de3e2  -  275
-eba4d26b  -  245
-eb262843  -  237
-67e2f2c2  -  207
+eba81f55  -  392
+6782905a  -  376
+8487cea8  -  341
+eba4d26b  -  312
+eb5de3e2  -  283
+8f7bd9af  -  265
+eb262843  -  250
 ...
 ```
