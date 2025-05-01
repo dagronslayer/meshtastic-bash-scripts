@@ -11,14 +11,23 @@ Quick stats on mtrl results. This also returns the mean SNR. Useful for evaluati
 
 Example output:
 ```
--5.5dB
--6.5dB
--6.0dB
+Outbound SNR values:
+-0.5dB
+-0.75dB
+-1.25dB
 ...
-Successful traces: 45
+
+Inbound SNR values:
+-16.0dB
+-17.25dB
+-10.75dB
+...
+
+Successful traces: 38
 Failed traces: 10
-81% Success
--8.61dB mean SNR from 45 recorded values
+79% Success
+Outbound: -2.20dB mean SNR from 38 recorded values
+Inbound: -9.96dB mean SNR from 38 recorded values
 ```
 
 ## mlog_stats.sh
