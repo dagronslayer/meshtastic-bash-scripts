@@ -31,8 +31,7 @@ Inbound: -9.96dB mean SNR from 38 recorded values
 ```
 
 ## mlog_stats.sh
-This parses the tail (default 5000 rows) of the /var/log/meshtasticd.json log and returns which nodes have produced the most activity (from field). I wrote this to determine which nodes causing high channel utilization.
-
+This parses the tail (default 5000 rows) of the /var/log/meshtasticd.json log and returns which nodes have produced the most activity (from field). I wrote this to determine which nodes causing high channel utilization. With the default 5000, this script requires about 2 minutes to execute on a Raspberry Pi 3.
 Example output:
 ```
 eba81f55  -  392
