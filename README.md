@@ -7,7 +7,8 @@ Grep any unique parameter from the `meshtastic --nodes` results and run a tracer
 Run traceroutes on a defined interval (default is every 15 minutes for 12 hours) and logs the results.
 
 ## mtrl_stats.sh
-Quick stats on mtrl results. This also returns the mean SNR. Useful for evaluating recorded improvement with different antennas, etc. Requires bc
+Quick stats on mtrl results. This also returns the mean SNR. Useful for evaluating recorded improvement with different antennas, etc.
+**Requires bc**
 
 Example output:
 ```
@@ -16,13 +17,11 @@ Outbound SNR values:
 -0.75dB
 -1.25dB
 ...
-
 Inbound SNR values:
 -16.0dB
 -17.25dB
 -10.75dB
 ...
-
 Successful traces: 38
 Failed traces: 10
 79% Success
