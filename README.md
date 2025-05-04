@@ -8,25 +8,25 @@ Run traceroutes on a defined interval (default is every 15 minutes for 12 hours)
 
 ## mtrl_stats.sh
 Quick stats on mtrl results. This also returns the mean SNR. Useful for evaluating recorded improvement with different antennas, etc.
-**Requires bc**
+<br/>**Requires bc**
 
 Example output:
 ```
 Outbound SNR values:
--0.5dB
--0.75dB
--1.25dB
+-2.5dB
+-1.75dB
+-3.5dB
 ...
 Inbound SNR values:
--16.0dB
--17.25dB
--10.75dB
+-5.75dB
+-2.5dB
+-12.75dB
 ...
-Successful traces: 38
-Failed traces: 10
-79% Success
-Outbound: -2.20dB mean SNR from 38 recorded values
-Inbound: -9.96dB mean SNR from 38 recorded values
+Successful traces: 42
+Failed traces: 6
+87% Success
+Outbound: -3.28dB mean SNR from 42 recorded values
+Inbound: -6.63dB mean SNR from 42 recorded values
 ```
 
 ## mlog_stats.sh
