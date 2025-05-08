@@ -42,3 +42,6 @@ eb5de3e2  -  283
 eb262843  -  250
 ...
 ```
+
+## mutil.sh
+Prints the average channel and tx air utilization of nodes last heard within 24 hours.
