@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-results=($(meshtastic --nodes | grep "now\|sec\|min\|\hour" | tr '│' '^' | cut -d'^' -f34 | grep '%' | cut -d '%' -f 1 | xargs))
+results=($(meshtastic --nodes | grep "now\|sec\|min\|\hour" | tr '│' '^' | cut -d'^' -f37 | grep '%' | cut -d '%' -f 1 | xargs))
 cresults=${#results[@]}
 sum=0
 for i in "${results[@]}"; do
@@ -15,7 +15,7 @@ done
 ave=$(echo "scale=2; $sum / $cresults" | bc)
 echo "Average Channel util. from $cresults nodes: ${ave}%"
 
-results=($(meshtastic --nodes | grep "now\|sec\|min\|\hour" | tr '│' '^' | cut -d'^' -f37 | grep '%' | cut -d '%' -f 1 | xargs))
+results=($(meshtastic --nodes | grep "now\|sec\|min\|\hour" | tr '│' '^' | cut -d'^' -f40 | grep '%' | cut -d '%' -f 1 | xargs))
 cresults=${#results[@]}
 sum=0
 for i in "${results[@]}"; do
