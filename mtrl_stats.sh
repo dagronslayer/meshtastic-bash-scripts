@@ -13,7 +13,7 @@ fi
 
 echo "Outbound SNR values:"
 grep -i -A 1 'Route traced towards destination' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '^[^)]*' | cut -d '(' -f 2 | grep -v '?dB'
-osnrc=$(grep -i -A 1 'Route traced back to us' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '[^(]*$' | cut -d ')' -f 1 | grep -v '?dB' | wc -l)
+osnrc=$(grep -i -A 1 'Route traced towards destination' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '^[^)]*' | cut -d '(' -f 2 | grep -v '?dB' | wc -l)
 echo ""
 echo "Inbound SNR values:"
 grep -i -A 1 'Route traced back to us' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '[^(]*$' | cut -d ')' -f 1 | grep -v '?dB'
