@@ -16,7 +16,7 @@ if [ -n "$mnode" ]; then
         madd=$(echo "$mnode" | head -1 | tr '│' '^' | cut -d'^' -f10 | xargs)
         for(( i=$iterations; i>0; i-=1 )); do
             mtb=$(date +%s)
-            mout=$(/usr/local/bin/meshtastic --traceroute "$madd")
+            mout=$(meshtastic --traceroute "$madd")
             mte=$(date +%s)
             mtt=$(expr $mte - $mtb)
             mout2=$(echo $mout | grep "Aborting")
