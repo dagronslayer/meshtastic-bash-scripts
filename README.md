@@ -29,6 +29,9 @@ Outbound: -3.28dB mean SNR from 42 recorded values
 Inbound: -6.63dB mean SNR from 42 recorded values
 ```
 
+## mtrl_stats_rev.sh
+This is the same as mtrl_stats.sh except that it does the SNR calculations on the last hop. So you're getting SNR values for the remote traceroute target.
+
 ## mlog_stats.sh
 This parses the tail (default 5000 rows) of the /var/log/meshtasticd.json log and returns which nodes have produced the most activity (from field). I wrote this to determine which nodes causing high channel utilization. With the default 5000, this script requires about 2 minutes to execute on a Raspberry Pi 3.
 Example output:
