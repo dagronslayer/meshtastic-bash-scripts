@@ -10,10 +10,10 @@ if [ -f ./mtrl_log/mtrl.log ]; then
     [[ "$choice" == [Yy]* ]] && rm ./mtrl_log/*.log
 fi
 
-mnode=$(meshtastic --nodes | grep "$1")
+mnode=$(meshtastic --nodes --show-fields user.id,user.shortName,user.longName | grep "$1")
 if [ -n "$mnode" ]; then
         echo "$mnode"
-        madd=$(echo "$mnode" | head -1 | tr '│' '^' | cut -d'^' -f10 | xargs)
+        madd=$(echo "$mnode" | awk -F'│' '{print $3}' | xargs)
         for(( i=$iterations; i>0; i-=1 )); do
             mtb=$(date +%s)
             mout=$(meshtastic --traceroute "$madd")
