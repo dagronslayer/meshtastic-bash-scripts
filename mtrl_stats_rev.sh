@@ -66,14 +66,14 @@ echo "Outbound: ${osnrtm}dB mean SNR from ${osnrc} recorded values"
 hold=true
 for i in $(grep -i -A 1 'Route traced back to us' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '^[^)]*' | cut -d '(' -f 2 | cut -d 'd' -f 1 | grep -v '?' | grep -v '-'); do
     if [ "$hold" = true ]; then
-        o="$i"
+        ib="$i"
         hold=false
     else
-        o="$o + $i"
+        ib="$ib + $i"
     fi
 done
-if [[ -n "$o" ]]; then
-    ipsnrt=$(echo "$o" | bc)
+if [[ -n "$ib" ]]; then
+    ipsnrt=$(echo "$ib" | bc)
 else
     ipsnrt="0"
 fi
@@ -81,14 +81,14 @@ fi
 hold=true
 for i in $(grep -i -A 1 'Route traced back to us' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '^[^)]*' | cut -d '(' -f 2 | cut -d 'd' -f 1 | grep -v '?' | grep '-'); do
     if [ "$hold" = true ]; then
-        o="$i"
+        ib="$i"
         hold=false
     else
-        o="$o + $i"
+        ib="$ib + $i"
     fi
 done
-if [[ -n "$o" ]]; then
-    insnrt=$(echo "$o" | bc)
+if [[ -n "$ib" ]]; then
+    insnrt=$(echo "$ib" | bc)
 else
     insnrt="0"
 fi
