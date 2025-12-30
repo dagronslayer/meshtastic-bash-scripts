@@ -3,8 +3,10 @@
 ## mtr.sh <node name, short name, id...>
 Grep any unique parameter from the `meshtastic --nodes` results and run a traceroute on the row it matches. No more manually searching for hex node ids.
 
-## mtrl.sh <node name, short name, id...>
+## mtrl.sh
+Usage: ./mtrl.sh [-i interval] [-r repeat] [-p port] <node name/id/short>
 Run traceroutes on a defined interval (default is every 15 minutes for 12 hours) and logs the results.
+
 
 ## mtrl_stats.sh
 Quick stats on mtrl results. This also returns the mean SNR. Useful for evaluating recorded improvement with different antennas, etc.
