@@ -53,7 +53,7 @@ Prints the average channel and tx air utilization of nodes last heard within 24 
 <br/>**Requires bc**
 
 ## ignore.sh <node name, short name, id...>
-Iterate through a list of remote admin node addresses applying --set-ignored-node <input> on each of them. Requires address of each RA node in a file named `ra.lst`
+Iterate through a list of remote admin node addresses applying `--set-ignored-node <input>` on each of them. Requires address of each RA node in a file named `ra.lst`
 Example ra.lst:
 ```
 !3c275a6b
