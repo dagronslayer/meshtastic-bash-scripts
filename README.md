@@ -51,3 +51,12 @@ eb262843  -  250
 ## mutil.sh
 Prints the average channel and tx air utilization of nodes last heard within 24 hours.
 <br/>**Requires bc**
+
+## ignore.sh <node name, short name, id...>
+Iterate through a list of remote admin node addresses applying --set-ignored-node <input> on each of them. Requires address of each RA node in a file named `ra.lst`
+Example ra.lst:
+```
+!3c275a6b
+!eb5de3e2
+...
+```
