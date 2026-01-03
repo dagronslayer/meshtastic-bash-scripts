@@ -6,12 +6,12 @@ if [ -n "$mnode" ]; then
         if [[ -f "ra.lst" ]]; then
             while IFS= read -r radd; do
                 out=$(meshtastic --set-ignored-node "$madd" --dest "$radd")
+                sleep 30
             done < "ra.lst"
         else
             echo "ra.lst not found"
             exit 1
         fi
-        sleep 30
 else
         echo "$1 not found"
 fi
