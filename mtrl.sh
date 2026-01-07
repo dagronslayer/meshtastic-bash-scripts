@@ -2,7 +2,7 @@
 
 # Define usage function
 usage() {
-    echo "Usage: $0 [-i interval] [-r repeat] [-p port] <required_argument>"
+    echo "Usage: $0 [-i interval (sec)] [-r repeat] [-p port] <required_argument>"
     exit 1
 }
 
@@ -48,8 +48,9 @@ else
 fi
 
 # validate with the user the parameters being used
+#TOTAL_TIME = $INTERVAL * $REPEAT / 60
 echo "Target: $NODE"
-echo "Config: Interval=$INTERVAL, Repeat=$REPEAT, Port=$PORT"
+echo "Config: TR every $INTERVAL sec, $REPEAT times on Port=$PORT"
 
 # loop through a Traceroute $REPEAT times
 if [ -n "$mnode" ]; then
