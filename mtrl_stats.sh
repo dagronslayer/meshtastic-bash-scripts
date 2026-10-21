@@ -11,12 +11,12 @@ if [ ! -f ./mtrl_log/mtrd.log ] || [ ! -f ./mtrl_log/mtrl.log ]; then
     exit 1
 fi
 
-echo "Outbound SNR values:"
+echo "TX SNR values:"
 grep -i -A 1 'Route traced towards destination' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '^[^)]*' | cut -d '(' -f 2 | grep -v '?dB'
 # osnrc is the count of outbound SNR values
 osnrc=$(grep -i -A 1 'Route traced towards destination' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '^[^)]*' | cut -d '(' -f 2 | grep -v '?dB' | wc -l)
 echo ""
-echo "Inbound SNR values:"
+echo "RX SNR values:"
 grep -i -A 1 'Route traced back to us' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '[^(]*$' | cut -d ')' -f 1 | grep -v '?dB'
 # isnrc is the count in inbound SNR values
 isnrc=$(grep -i -A 1 'Route traced back to us' ./mtrl_log/mtrd.log | grep \\'-->' | grep -o '[^(]*$' | cut -d ')' -f 1 | grep -v '?dB' | wc -l)
@@ -67,7 +67,7 @@ osnrt=$(echo "$opsnrt + $onsnrt" | bc)
 # average 
 osnrtm=$(echo "scale=2; $osnrt / $osnrc" | bc)
 
-echo "Outbound: ${osnrtm}dB mean SNR from ${osnrc} recorded values"
+echo "TX: ${osnrtm}dB mean SNR from ${osnrc} recorded values"
 
 # ipsnrt is the accumulation of inbound positive SNR values
 hold=true
@@ -106,4 +106,4 @@ isnrt=$(echo "$ipsnrt + $insnrt" | bc)
 # average
 isnrtm=$(echo "scale=2; $isnrt / $isnrc" | bc)
 
-echo "Inbound: ${isnrtm}dB mean SNR from ${isnrc} recorded values"
+echo "RX: ${isnrtm}dB mean SNR from ${isnrc} recorded values"
